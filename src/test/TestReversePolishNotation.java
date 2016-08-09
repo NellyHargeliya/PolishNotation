@@ -2,6 +2,7 @@ package test;
 
 import main.ReversePolishNotation;
 import org.junit.Test;
+
 import static org.junit.Assert.assertTrue;
 
 public class TestReversePolishNotation {
@@ -40,6 +41,5 @@ public class TestReversePolishNotation {
         ReversePolishNotation rpn = new ReversePolishNotation();
         assertTrue(rpn.calculate("(15/3+11-3*5)/3*(6-10)") == 18);
     }
-
 
 }
