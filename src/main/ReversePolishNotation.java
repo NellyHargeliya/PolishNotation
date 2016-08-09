@@ -18,9 +18,10 @@ public class ReversePolishNotation {
     public String getExpression(String input) {
         Deque<Character> operStack = new LinkedList<>();
         String output = "";
-        if (!checkFallPast(input)) {
-            System.err.println("The expression has symbols that not numbers and operators!");
-        } else {
+        try{
+            checkFallPast(input);
+
+
             char[] tempInput = input.toCharArray();
             for (int i = 0; i < tempInput.length; i++) {
                 if (isDelimeter(tempInput[i])) continue;
@@ -52,15 +53,24 @@ public class ReversePolishNotation {
             }
             while (operStack.size() > 0)
                 output += operStack.pop() + " ";
-        }
+
+            } catch (Exception e) {
+        System.err.println("The expression has symbols that not numbers and operators!");
+    }
+
         return output;
     }
     //The calculation of the value of expression.
     //The method takes the expression as a string and returns the result
     public Integer calculate(String input) {
+      try {
         String value = getExpression(input);
         Integer result = counting(value);
-        return result;
+          return result;
+    } catch (Exception e) {
+        System.err.println("The expression has symbols that not numbers and operators!");
+    }
+       return null;
     }
     //The method calculates the value of the expression, already converted to polish notation
     private Integer counting(String value) {
