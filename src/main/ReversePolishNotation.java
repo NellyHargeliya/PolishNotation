@@ -25,7 +25,7 @@ public class ReversePolishNotation {
             char[] tempInput = input.toCharArray();
             for (int i = 0; i < tempInput.length; i++) {
                 if (isDelimeter(tempInput[i])) continue;
-                if (isDigit(tempInput[i])) {
+                if (Character.isDigit(tempInput[i])) {
                     while (!isDelimeter(tempInput[i]) && !isOperator(tempInput[i])) {
                         output += tempInput[i];
                         i++;
@@ -123,11 +123,6 @@ public class ReversePolishNotation {
     //Checking whether a character is a delimeter
     private boolean isDelimeter(char ch) {
         return ch == ' ' || ch == '=';
-    }
-
-    //Checking whether a character is a number
-    private boolean isDigit(char ch) {
-        return ch >= '0' && ch <= '9';
     }
 
     //Checking whether a character is a operator
