@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Nelly
  */
-public class ExpressionParser extends ReversePolishNotation {
+public class ExpressionParser {
     private static String regex = "[0-9[+/*-[()]]]*";
 
     //The method converts the input string expression to Polish notation
