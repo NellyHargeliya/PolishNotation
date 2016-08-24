@@ -2,22 +2,19 @@ package main;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.regex.Pattern;
 
 /**
  * Created by Nelly
  */
 public class ExpressionParser {
-    private static String regex = "[0-9[+/*-[()]]]*";
 
     //The method converts the input string expression to Polish notation
-
     public String getExpression(String input) {
         Deque<Character> operStack = new LinkedList<>();
         String output = "";
+        char[] tempInput = input.toCharArray();
         try {
-            checkFallPast(input);
-            char[] tempInput = input.toCharArray();
+            validExpression(tempInput[0], tempInput[tempInput.length - 1]);
             for (int i = 0; i < tempInput.length; i++) {
                 if (isDelimeter(tempInput[i])) continue;
                 if (Character.isDigit(tempInput[i])) {
@@ -48,18 +45,19 @@ public class ExpressionParser {
             }
             while (operStack.size() > 0)
                 output += operStack.pop() + " ";
-
+            return output;
         } catch (Exception e) {
-            System.err.println("The expression has symbols that not numbers and operators!");
+            //   System.err.println("The expression has symbols that not numbers and operators!");
         }
-
-        return output;
+        return null;
     }
 
-    //The expression checks fall  has not numbers and operators
-    private boolean checkFallPast(String input) {
-        Pattern pattern = Pattern.compile(regex);
-        return pattern.matcher(input).matches();
+
+    private boolean validExpression(char firstValue, char lastValue) {
+        if ((Character.isDigit(firstValue) & Character.isDigit(lastValue))) {
+            return true;
+        }
+        return false;
     }
 
     //Checking whether a character is a delimeter
