@@ -2,13 +2,17 @@ package main;
 
 import java.util.LinkedList;
 
+import static main.ExpressionUtil.*;
+
+
 /**
  * Created by Nelly
  */
-public class CountingExpression extends ExpressionParser {
+public class CalculateExpression {
 
     //The method calculates the value of the expression, already converted to polish notation
-    protected Long counting(String value) {
+    public Long calculatePolishNotation(String value) {
+
         LinkedList<Long> numbers = new LinkedList<>();
         LinkedList<Character> opers = new LinkedList<>();
         for (int i = 0; i < value.length(); i++) {
