@@ -18,8 +18,8 @@ public class DataDrivenTest {
     public void testZero() throws Exception {
         String ZERO = "ноль";
         System.out.println("Test Programm: test 1 - zero");
-        System.out.println(ZERO + " = " + processor.reverseExpression(ZERO));
-        assertEquals("Ошибка, нет нуля", null, processor.reverseExpression(ZERO));
+        System.out.println(ZERO + " = " + processor.getConvertExpression(ZERO));
+        assertEquals("Ошибка, нет нуля", null, processor.getConvertExpression(ZERO));
     }
 
     @Test
@@ -28,8 +28,8 @@ public class DataDrivenTest {
         System.out.println("Test Programm: test 2 - valid expression");
 
         for (String i : expressions) {
-            System.out.println(i + " = " + processor.reverseExpression(i));
-            assertEquals("Ошибка, валидности выражения", null, processor.reverseExpression(i));
+            System.out.println(i + " = " + processor.getConvertExpression(i));
+            assertEquals("Ошибка, валидности выражения", null, processor.getConvertExpression(i));
         }
     }
 
@@ -39,8 +39,8 @@ public class DataDrivenTest {
         System.out.println("Test Programm: test 3 - valid polish notation");
 
         for (String i : polishNotation) {
-            System.out.println(i + " = " + processor.calculatePolishNotation(i));
-            assertEquals("Ошибка, валидности польской нотации", null, processor.calculatePolishNotation(i));
+            System.out.println(i + " = " + processor.getConvertExpression(i));
+            assertEquals("Ошибка, валидности польской нотации", null, processor.getConvertExpression(i));
         }
     }
 
@@ -64,7 +64,7 @@ public class DataDrivenTest {
             System.out.println();
         }
         System.out.println();
-        assertEquals("Ошибка в выражении: " + inExpression, inResult, processor.reverseExpression(inExpression));
+        assertEquals("Ошибка в выражении: " + inExpression, inResult, processor.getConvertExpression(inExpression));
     }
 
     @Test
@@ -87,6 +87,6 @@ public class DataDrivenTest {
             System.out.println();
         }
         System.out.println();
-        assertEquals("Ошибка в подсчете польского выражения: " + inPolishExpression, inResult, (long) processor.calculatePolishNotation(inPolishExpression));
+        assertEquals("Ошибка в подсчете польского выражения: " + inPolishExpression, inResult, (long) processor.getCalculate(inPolishExpression));
     }
 }
