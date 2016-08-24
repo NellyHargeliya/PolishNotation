@@ -1,15 +1,14 @@
 package main;
 
-import java.lang.*;
-
-import static main.ExpressionUtil.*;
+import static main.ExpressionUtil.checkFallPast;
+import static main.ExpressionUtil.checkFallPastPolichNotition;
 
 /**
  * Preparation of the Polish notation the mathematical expression
  * and the calculation of the value of this expression.
  * #Created by Nelly#
  */
-public class ReversePolishNotation {
+public class PolishNotation {
 
     //The method takes the expression as a string and returns the result
     public String getConvertExpression(String input) {

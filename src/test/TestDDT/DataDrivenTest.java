@@ -1,5 +1,5 @@
 package test.TestDDT;
-import main.ReversePolishNotation;
+import main.PolishNotation;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Nelly
  */
 public class DataDrivenTest {
-    ReversePolishNotation processor = new ReversePolishNotation();
+    PolishNotation processor = new PolishNotation();
 
     @Test
     public void testZero() throws Exception {
